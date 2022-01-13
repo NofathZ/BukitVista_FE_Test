@@ -1,0 +1,27 @@
+.layout-content {
+  padding: 100px;
+}
+
+.img-user img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.user-info p {
+  margin: 20px 0;
+}
+
+.field-set {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.check-date {
+  margin-right: 30px;
+}
+
+.user-info-text {
+  font-size: 15px;
+}

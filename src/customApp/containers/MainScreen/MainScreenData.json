@@ -1,0 +1,13 @@
+{
+  "bookingCodeTitle": "Your Booking Code",
+  "sayThank": "Thank you for booking with Bukit Vista. Here are the details of your current booking:",
+  "waitingArrival": "Please set your arrival time",
+  "thankArrival": "Thank you, your host has been informed about your arrival",
+  "menus": [
+    {
+      "textMenu":"Guest Portal",
+      "route":"/guest-portal"
+    }
+  ],
+  "bookingCodeInvalid": "Booking Code Invalid"
+}

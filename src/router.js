@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import App from './containers/App/App';
 import asyncComponent from './helpers/AsyncFunc';
 import Auth0 from './helpers/auth0';
+import GuestPortal from './customApp/containers/GuestPortal'
 
 const RestrictedRoute = ({ component: Component, isLoggedIn, ...rest }) => (
   <Route
@@ -28,55 +29,15 @@ const PublicRoutes = ({ history, isLoggedIn }) => {
     <ConnectedRouter history={history}>
       <div>
         <Route
-          exact
-          path={'/'}
-          component={asyncComponent(() => import('./containers/Page/signin'))}
-        />
-        <Route
-          exact
-          path={'/404'}
-          component={asyncComponent(() => import('./containers/Page/404'))}
-        />
-        <Route
-          exact
-          path={'/500'}
-          component={asyncComponent(() => import('./containers/Page/500'))}
-        />
-        <Route
-          exact
-          path={'/signin'}
-          component={asyncComponent(() => import('./containers/Page/signin'))}
-        />
-        <Route
-          exact
-          path={'/signup'}
-          component={asyncComponent(() => import('./containers/Page/signup'))}
-        />
-        <Route
-          exact
-          path={'/forgotpassword'}
-          component={asyncComponent(() =>
-            import('./containers/Page/forgotPassword')
-          )}
-        />
-        <Route
-          exact
-          path={'/resetpassword'}
-          component={asyncComponent(() =>
-            import('./containers/Page/resetPassword')
-          )}
-        />
-
-        <Route
-          path="/auth0loginCallback"
-          render={props => {
-            Auth0.handleAuthentication(props);
-          }}
-        />
-        <RestrictedRoute
-          path="/dashboard"
+          path="/"
           component={App}
           isLoggedIn={isLoggedIn}
+          exact
+        />
+        <Route 
+          path="/guest-portal"
+          component={GuestPortal}
+          exact
         />
       </div>
     </ConnectedRouter>

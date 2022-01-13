@@ -15,6 +15,7 @@ import { siteConfig } from '../../settings';
 import { AppLocale } from '../../dashApp';
 import themes from '../../settings/themes';
 import AppHolder from './commonStyle';
+import MainScreen from '../../customApp/containers/MainScreen'
 import './global.css';
 
 const { Content, Footer } = Layout;
@@ -45,36 +46,9 @@ export class App extends Component {
                     }
                   />
                 </Debounce>
-                <Topbar url={url} />
                 <Layout style={{ flexDirection: 'row', overflowX: 'hidden' }}>
                   <Sidebar url={url} />
-                  <Layout
-                    className="isoContentMainLayout"
-                    style={{
-                      height: height
-                    }}
-                  >
-                    <Content
-                      className="isomorphicContent"
-                      style={{
-                        padding: '70px 0 0',
-                        flexShrink: '0',
-                        background: '#f1f3f6',
-                        position: 'relative'
-                      }}
-                    >
-                      <AppRouter url={url} />
-                    </Content>
-                    <Footer
-                      style={{
-                        background: '#ffffff',
-                        textAlign: 'center',
-                        borderTop: '1px solid #ededed'
-                      }}
-                    >
-                      {siteConfig.footerText}
-                    </Footer>
-                  </Layout>
+                  <MainScreen />
                 </Layout>
                 <ThemeSwitcher />
               </Layout>

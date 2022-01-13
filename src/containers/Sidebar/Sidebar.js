@@ -10,6 +10,8 @@ import IntlMessages from "../../components/utility/intlMessages";
 import SidebarWrapper from "./sidebar.style";
 import appActions from "../../redux/app/actions";
 import Logo from "../../components/utility/logo";
+import Title from "antd/lib/skeleton/Title";
+import SidebarMenu from './SidebarMenu.json'
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -154,50 +156,17 @@ class Sidebar extends Component {
             <Menu
               onClick={this.handleClick}
               theme="dark"
-              className="isoDashboardMenu"
               mode={mode}
-              openKeys={collapsed ? [] : app.openKeys}
-              selectedKeys={app.current}
-              onOpenChange={this.onOpenChange}
             >
-              {options.map(singleOption =>
-                this.getMenuItem({ submenuStyle, submenuColor, singleOption })
-              )}
-              {/* Demo Menu */}
-              <SubMenu
-                key="sub1"
-                title={
-                  <span className="isoMenuHolder" style={submenuColor}>
-                    <i className="ion-android-options" />
-                    <span className="nav-text">
-                      <IntlMessages id="sidebar.menuLevels" />
-                    </span>
-                  </span>
-                }
-              >
-                <MenuItemGroup
-                  key="g1"
-                  title={<IntlMessages id="sidebar.item1" />}
-                >
-                  <Menu.Item style={submenuStyle} key="1">
-                    <IntlMessages id="sidebar.option1" />
+              {
+                SidebarMenu.map(menu => (
+                  <Menu.Item style={submenuStyle}>
+                    <Link to={menu.route}>
+                      <IntlMessages id={menu.title} />
+                    </Link>
                   </Menu.Item>
-                  <Menu.Item style={submenuStyle} key="2">
-                    <IntlMessages id="sidebar.option2" />
-                  </Menu.Item>
-                </MenuItemGroup>
-                <MenuItemGroup
-                  key="g2"
-                  title={<IntlMessages id="sidebar.item2" />}
-                >
-                  <Menu.Item style={submenuStyle} key="3">
-                    <IntlMessages id="sidebar.option3" />
-                  </Menu.Item>
-                  <Menu.Item style={submenuStyle} key="4">
-                    <IntlMessages id="sidebar.option4" />
-                  </Menu.Item>
-                </MenuItemGroup>
-              </SubMenu>
+                ))
+              }
             </Menu>
           </Scrollbars>
         </Sider>

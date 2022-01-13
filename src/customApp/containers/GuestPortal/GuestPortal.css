@@ -1,0 +1,44 @@
+.container-own {
+  padding: 0 300px;
+}
+@media only screen and (max-width: 992px) {
+  .container-own {
+    padding: 0 20px !important;
+  }
+}
+
+.container-own > * {
+  margin: 20px 0;
+}
+
+.img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-box .portal-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.guest-title-job {
+  font-size: 20px;
+}
+
+.guest-desc {
+  font-size: 20px;
+}
+
+.sosmed-box {
+  margin: 50px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.sosmed-box > * {
+  font-size: 30px;
+}
